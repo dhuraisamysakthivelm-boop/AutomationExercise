@@ -2,71 +2,74 @@ import { faker } from '@faker-js/faker';
 
 export class RandomDataUtil {
 
-  static getTitle() {
+  static async getTitle() {
+    const { faker } = await import('@faker-js/faker');
     return faker.helpers.arrayElement(["Mr.", "Mrs."]);
   }
 
-  static getPassword(): string {
+  static async getPassword(): Promise<string> {
+    const { faker } = await import('@faker-js/faker');
     return faker.internet.password();
   }
 
-  static getBirthday() {
-    return faker.date.birthdate()
-
+  static async getBirthday() {
+    const { faker } = await import('@faker-js/faker');
+    return faker.date.birthdate();
   }
 
-  static getFirstName() {
+  static async getFirstName() {
+    const { faker } = await import('@faker-js/faker');
     return faker.person.firstName();
-
   }
 
-  static getlastName() {
+  static async getlastName() {
+    const { faker } = await import('@faker-js/faker');
     return faker.person.lastName();
-
   }
 
-
-  static getcompany() {
-    return faker.company.name()
-
+  static async getcompany() {
+    const { faker } = await import('@faker-js/faker');
+    return faker.company.name();
   }
 
-  static getAddress(): string {
-    return faker.location.streetAddress()
-
+  static async getAddress(): Promise<string> {
+    const { faker } = await import('@faker-js/faker');
+    return faker.location.streetAddress();
   }
 
-  static getCountry(): string {
-    return faker.helpers.arrayElement(["India", "United States","Canada", "Australia","Israel","New Zealand","Singapore"])
-
+  static async getCountry(): Promise<string> {
+    const { faker } = await import('@faker-js/faker');
+    return faker.helpers.arrayElement(["India", "United States","Canada", "Australia","Israel","New Zealand","Singapore"]);
   }
 
-  static getState(): string {
-    return faker.location.state()
-
+  static async getState(): Promise<string> {
+    const { faker } = await import('@faker-js/faker');
+    return faker.location.state();
   }
 
-  static getCity(): string {
-    return faker.location.city()
-
+  static async getCity(): Promise<string> {
+    const { faker } = await import('@faker-js/faker');
+    return faker.location.city();
   }
 
-  static getZipcode(): string {
-    return faker.location.zipCode()
-
+  static async getZipcode(): Promise<string> {
+    const { faker } = await import('@faker-js/faker');
+    return faker.location.zipCode();
   }
 
-  static getPhoneNumber() {
+  static async getPhoneNumber() {
+    const { faker } = await import('@faker-js/faker');
     return faker.phone.number();
-
   }
   
-  static getUserName(){
-    return faker.person.fullName()
+  static async getUserName(){
+    const { faker } = await import('@faker-js/faker');
+    return faker.person.fullName();
   }
 
-  static getEmail(){
-    return faker.internet.email()
+  static async getEmail(){
+    const { faker } = await import('@faker-js/faker');
+    return faker.internet.email();
   }
   
 }

@@ -25,14 +25,9 @@ export class HomePage {
         this.locateContactUsLink = this.page.getByRole('link', { name: ' Contact us' })
     }
 
-    async verifyHomePage() {
-        try {
+    async verifyHomePage() {        
             await this.locateHomePageVerify.waitFor({ state: "visible", timeout: 5000 });
-            return true;
-        } catch (error) {
-            console.error("Home page verification failed:", error);
-            return false;
-        }
+            return this.locateHomePageVerify;        
     }
 
     async clickHomeLink(){

@@ -1,12 +1,17 @@
 export class TestConfig {
     appUrl = "https://automationexercise.com/"
 
-    //valid login credentials- create your own login account
-    loginemail = "dhuraisamys1@gmail.com"
-    password = "test@123"
+    //valid login credentials- to login account
+    validloginemail = "dhuraisamys1@gmail.com"
+    validpassword = "test@123"
+
+    //Invalid login credentials
+    invalidloginemail = 'd@xmail.com'
+    invalidpassword = 'test@123'
     
     //product details
     name = "MacBook"
     signinmail = "dhtr@gmail.com"
     // totalPrice = "$1,204.00"
 }
+

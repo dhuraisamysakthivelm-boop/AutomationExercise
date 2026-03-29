@@ -1,0 +1,4 @@
+scenario,loginemail,password,username
+valid login,arjun.ramanathan@example.com,test@123,Arjun_Ramanathan
+invalid login,arjun.ramanathan@gmail.com,password@123,Arjun_Ramanathan
+valid login,meera.subramaniam@example.com,test@123,Meera_Subramaniam
