@@ -1,0 +1,20 @@
+[
+    {
+        "scenario" : "valid login",
+        "loginemail" : "arjun.ramanathan@example.com",
+        "password" : "test@123",
+        "username" : "Arjun_Ramanathan"
+    },
+    {
+        "scenario" : "invalid login",
+        "loginemail" : "arjun.ramanathan@gmail.com",
+        "password" : "password@123",
+        "username" : "Arjun_Ramanathan"
+    },
+    {
+        "scenario" : "valid login",
+        "loginemail" : "meera.subramaniam@example.com",
+        "password" : "test@123",
+        "username" : "Meera_Subramaniam"
+    }
+]

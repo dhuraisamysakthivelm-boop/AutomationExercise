@@ -11,6 +11,7 @@ export class SignupLoginPage {
     private readonly locateSignupName: Locator;
     private readonly locateSignupEmail: Locator;
     private readonly locateSignupButton: Locator;
+    private readonly locateErrorMessage:Locator;
 
     constructor(page: Page) {
         this.page = page
@@ -22,31 +23,23 @@ export class SignupLoginPage {
         this.locateSignupName = this.page.locator("input[data-qa='signup-name']")
         this.locateSignupEmail = this.page.locator("input[data-qa='signup-email']")
         this.locateSignupButton = this.page.getByRole("button", { name: 'Signup' })
+        this.locateErrorMessage = this.page.getByText('Your email or password is');
     }
 
 
     async verifyLoginTitle() {
-        try {
-            await this.locateLoginVerify.waitFor({ state: "visible", timeout: 5000 });
-            return true;
-        } catch (error) {
-            console.log("Test case failed: Login page title not visible");
-            return false;
-        }
+        await this.locateLoginVerify.waitFor({ state: "visible", timeout: 5000 });
+        return this.locateLoginVerify.textContent();
+
     }
 
     async verifySignupTitle() {
-        try {
-            await this.locateSignupVerify.waitFor({ state: "visible", timeout: 5000 });
-            return true;
-        } catch (error) {
-            console.log("Test case failed: Signup page title not visible");
-            return false;
-        }
+        await this.locateSignupVerify.waitFor({ state: "visible", timeout: 5000 });
+        return this.locateSignupVerify;
     }
 
     async enterLoginEmail(loginemail: string) {
-        try {            
+        try {
             await this.locateLoginEmail.waitFor({ state: "visible", timeout: 5000 });
             await this.locateLoginEmail.clear()
             await this.locateLoginEmail.fill(loginemail)
@@ -56,7 +49,7 @@ export class SignupLoginPage {
     }
 
     async enterLoginPassword(loginpassword: string) {
-        try {            
+        try {
             await this.locateLoginPassword.clear()
             await this.locateLoginPassword.fill(loginpassword)
         } catch {
@@ -100,5 +93,10 @@ export class SignupLoginPage {
         } catch {
             console.log("Test case failed: Not able to click signup button during Login");
         }
+    }
+
+    async verifyErrorMessage(){
+        await this.locateErrorMessage.waitFor({state:'visible'})
+        return this.locateErrorMessage
     }
 }
