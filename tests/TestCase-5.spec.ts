@@ -23,7 +23,7 @@ import { PageAfterSigninLogin } from "../pages/PageAfterSigninLogin"
 import fs from 'fs';
 import { parse } from 'csv-parse/sync';
 import path from 'path'
-
+import { readCSV } from '../utils/readCSV';
 
 let homepage: HomePage;
 let signinlogin: SignupLoginPage;
@@ -39,15 +39,19 @@ interface Testdata{
 
 //"data/testdata.csv"
 // const csvPath = path.join(__dirname,'AutomationExercise/data/testdata.csv')
-const csvPath = path.resolve(__dirname, '../data/testdata.csv')
-const fileContent = fs.readFileSync(csvPath,"utf-8")
+// const csvPath = path.resolve(__dirname, '../data/loginDetails.csv')
+// const fileContent = fs.readFileSync(csvPath,"utf-8")
 
-const records = parse(fileContent, { columns:true, skip_empty_lines: true}) as Testdata[]
+// const records = parse(fileContent, { columns:true, skip_empty_lines: true}) as Testdata[]
+const records = readCSV('data/loginDetails.csv');
 
 test.describe('TestCase-5', () => {
 
 test.beforeEach(async ({ page }) => {
 
+    page.on('pageerror', (error) => {
+      console.log('Page error ignored:', error.message);
+    });
     await page.waitForLoadState('networkidle');
     await page.locator('.loader').waitFor({ state: 'hidden' });
     config = new TestConfig();
