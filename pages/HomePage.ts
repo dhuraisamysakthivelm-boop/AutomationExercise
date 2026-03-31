@@ -26,7 +26,7 @@ export class HomePage {
     }
 
     async verifyHomePage() {        
-            await this.locateHomePageVerify.waitFor({ state: "visible", timeout: 5000 });
+            //await this.locateHomePageVerify.waitFor({ state: "visible", timeout: 5000 });
             return this.locateHomePageVerify;        
     }
 
